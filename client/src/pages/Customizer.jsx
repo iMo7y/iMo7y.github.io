@@ -38,9 +38,27 @@ const [activeFilterTab, setActiveFilterTab] = useState({
         readFile={readFile}
          />
       case "aipicker":
-        return <AiPicker />
+        return <AiPicker 
+        prompt={prompt}
+        setPrompt={setPrompt}
+        generatingImg={generatingImg}
+        handleSubmit={handleSubmit}
+        />
       default:
         return null;
+    }
+  }
+
+  const handleSubmit = async (type) => {
+    if(!prompt) return alert("Please enter a prompt");
+    
+    try {
+      
+    } catch (error) {
+      alert(error)
+    } finally {
+      setGeneratingImg(false);
+      setActiveEditorTab("");
     }
   }
 
@@ -82,7 +100,7 @@ const [activeFilterTab, setActiveFilterTab] = useState({
       }
     })
   }
-
+  
   return (
    <AnimatePresence>
      {!snap.intro && (
