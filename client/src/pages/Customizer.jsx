@@ -40,7 +40,7 @@ const [activeFilterTab, setActiveFilterTab] = useState({
       case "aipicker":
         return <AiPicker 
         prompt={prompt}
-        setPrompt={setPrompt}
+        setPrompt={sPrompt}
         generatingImg={generatingImg}
         handleSubmit={handleSubmit}
         />
@@ -53,7 +53,20 @@ const [activeFilterTab, setActiveFilterTab] = useState({
     if(!prompt) return alert("Please enter a prompt");
     
     try {
-      
+      setGeneratingImg(true);
+
+      const response = await fetch('http://localhost:8080/api/v1/dalle', {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          prompt,
+        })
+      });
+
+      const data = await response.json();
+      handleDecals(type, `data:image/png;base64,${data}`)
     } catch (error) {
       alert(error)
     } finally {
