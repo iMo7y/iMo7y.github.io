@@ -40,9 +40,6 @@ const Home = () => {
               Create your unique and exclusive shirt with our
               brand-new 3D customization tool. <strong>Unleash your
                 imagination</strong>{" "} and define your own style.
-                WIN a $50 gift card by showcasing your one-of-a-kind 
-                shirts. Please send it to insta:imo7y__
-                Best shirt design wins!
             </p>
 
             <CustomButton
