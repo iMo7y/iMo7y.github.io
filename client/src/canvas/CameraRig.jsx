@@ -36,6 +36,6 @@ const CameraRig = ({ children }) => {
 
 
   return <group ref={group}>{children}</group>
-}
+} 
 
 export default CameraRig
